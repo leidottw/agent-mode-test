@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+    </pattern>
+    
+    <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#357abd;stop-opacity:0.2"/>
+    </linearGradient>
+
+    <!-- 添加發光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 脈衝動畫 -->
+    <radialGradient id="pulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.6">
+        <animate attributeName="stop-opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#4a90e2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- 背景網格 -->
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  
+  <!-- 動態電力線 -->
+  <g stroke="#4a90e2" stroke-width="1.5" fill="none" filter="url(#glow)">
+    <path d="M 0,300 Q 400,50 800,300" opacity="0.4">
+      <animate attributeName="d" 
+               values="M 0,300 Q 400,50 800,300;M 0,300 Q 400,150 800,300;M 0,300 Q 400,50 800,300" 
+               dur="8s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 0,350 Q 400,600 800,350" opacity="0.4">
+      <animate attributeName="d" 
+               values="M 0,350 Q 400,600 800,350;M 0,350 Q 400,500 800,350;M 0,350 Q 400,600 800,350" 
+               dur="10s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 400,0 Q 600,300 400,600" opacity="0.4">
+      <animate attributeName="d" 
+               values="M 400,0 Q 600,300 400,600;M 400,0 Q 500,300 400,600;M 400,0 Q 600,300 400,600" 
+               dur="12s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- 電力節點 -->
+  <g>
+    <circle cx="200" cy="200" r="4" fill="#4a90e2" opacity="0.8" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="200" r="4" fill="#4a90e2" opacity="0.8" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="400" r="4" fill="#4a90e2" opacity="0.8" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="500" r="4" fill="#4a90e2" opacity="0.8" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="500" r="4" fill="#4a90e2" opacity="0.8" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- 添加更多的連接線 -->
+  <g stroke="#4a90e2" stroke-width="1" opacity="0.2">
+    <line x1="200" y1="200" x2="400" y2="400">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="400" y2="400">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="200" y1="500" x2="400" y2="400">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="500" x2="400" y2="400">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- 背景漸層 -->
+  <rect width="100%" height="100%" fill="url(#line-gradient)"/>
+</svg>
