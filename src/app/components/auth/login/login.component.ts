@@ -12,7 +12,7 @@ import { TranslationService } from '../../../services/translation.service';
   standalone: true,
   imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   username = '';
@@ -23,14 +23,14 @@ export class LoginComponent implements OnInit {
 
   languages = [
     { code: 'en', name: 'English' },
-    { code: 'zh', name: '中文' }
+    { code: 'zh', name: '中文' },
   ];
 
   constructor(
     private authService: AuthService,
     private router: Router,
     public themeService: ThemeService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
   ) {
     this.currentLang = this.translationService.getCurrentLang();
   }
@@ -53,10 +53,10 @@ export class LoginComponent implements OnInit {
       next: () => {
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
+      error: err => {
         this.error = 'AUTH.LOGIN_ERROR';
         this.isLoading = false;
-      }
+      },
     });
   }
 

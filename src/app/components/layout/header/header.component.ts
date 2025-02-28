@@ -12,12 +12,12 @@ import { TranslationService } from '../../../services/translation.service';
   standalone: true,
   imports: [CommonModule, TranslateModule, FormsModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   languages = [
     { code: 'en', name: 'English' },
-    { code: 'zh', name: '中文' }
+    { code: 'zh', name: '中文' },
   ];
 
   currentLang: string;
@@ -26,7 +26,7 @@ export class HeaderComponent {
     public authService: AuthService,
     private router: Router,
     public themeService: ThemeService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
   ) {
     this.currentLang = this.translationService.getCurrentLang();
   }

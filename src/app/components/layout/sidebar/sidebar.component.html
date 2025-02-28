@@ -2,9 +2,10 @@
   <ul class="menu">
     @for (item of menuItems; track item.path) {
       <li>
-        <a [routerLink]="item.path" 
-           routerLinkActive="active" 
-           [routerLinkActiveOptions]="{exact: item.path === '/dashboard'}">
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/dashboard' }">
           <span class="material-icons">{{ item.icon }}</span>
           <span class="menu-label">{{ item.label | translate }}</span>
         </a>

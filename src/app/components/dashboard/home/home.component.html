@@ -26,16 +26,4 @@
       </div>
     </div>
   </div>
-
-  <section class="quick-actions">
-    <h2>{{ 'HOME.QUICK_ACTIONS' | translate }}</h2>
-    <div class="actions-grid">
-      @for (action of quickActions; track action.link) {
-        <div class="action-card">
-          <span class="material-icons">{{ action.icon }}</span>
-          <span class="action-label">{{ action.label | translate }}</span>
-        </div>
-      }
-    </div>
-  </section>
 </div>

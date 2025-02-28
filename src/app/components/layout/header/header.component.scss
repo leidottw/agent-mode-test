@@ -28,7 +28,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      
+
       &::before {
         content: 'person';
         font-family: 'Material Icons';
@@ -85,7 +85,7 @@
       color: var(--text-color);
       cursor: pointer;
       font-size: 0.9rem;
-      
+
       &:hover {
         border-color: var(--primary-color);
       }

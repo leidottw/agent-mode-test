@@ -8,7 +8,7 @@ interface User {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
@@ -25,13 +25,13 @@ export class AuthService {
     // 模擬 API 呼叫
     return of({
       username,
-      token: 'fake-jwt-token'
+      token: 'fake-jwt-token',
     }).pipe(
       delay(1000),
       tap(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-      })
+      }),
     );
   }
 

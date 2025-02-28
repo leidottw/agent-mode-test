@@ -9,13 +9,13 @@ import { ThemeService } from '../../../services/theme.service';
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive, TranslateModule],
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
   menuItems = [
     { path: '/dashboard', icon: 'dashboard', label: 'COMMON.DASHBOARD' },
     { path: '/dashboard/home', icon: 'home', label: 'COMMON.HOME' },
-    { path: '/dashboard/settings', icon: 'settings', label: 'COMMON.SETTINGS' }
+    { path: '/dashboard/settings', icon: 'settings', label: 'COMMON.SETTINGS' },
   ];
 
   constructor(public themeService: ThemeService) {}

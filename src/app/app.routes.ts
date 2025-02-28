@@ -9,22 +9,22 @@ import { Router } from '@angular/router';
 const authGuard = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
-  
+
   if (authService.isAuthenticated()) {
     return true;
   }
-  
+
   return router.navigate(['/login']);
 };
 
 const loginGuard = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
-  
+
   if (authService.isAuthenticated()) {
     return router.navigate(['/dashboard']);
   }
-  
+
   return true;
 };
 
@@ -32,7 +32,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [loginGuard]
+    canActivate: [loginGuard],
   },
   {
     path: 'dashboard',
@@ -42,9 +42,9 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'users', component: HomeComponent }, // Placeholder for now
-      { path: 'settings', component: HomeComponent } // Placeholder for now
-    ]
+      { path: 'settings', component: HomeComponent }, // Placeholder for now
+    ],
   },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: '/dashboard' }
+  { path: '**', redirectTo: '/dashboard' },
 ];

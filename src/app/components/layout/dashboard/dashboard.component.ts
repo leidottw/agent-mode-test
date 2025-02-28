@@ -8,14 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    HeaderComponent,
-    SidebarComponent,
-    TranslateModule
-  ],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, SidebarComponent, TranslateModule],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {}

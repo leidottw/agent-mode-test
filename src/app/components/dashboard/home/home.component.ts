@@ -8,14 +8,8 @@ import { AuthService } from '../../../services/auth.service';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   constructor(public authService: AuthService) {}
-
-  quickActions = [
-    { icon: 'analytics', label: 'HOME.VIEW_REPORTS', link: '/reports' },
-    { icon: 'database', label: 'HOME.MANAGE_DATA', link: '/data' },
-    { icon: 'monitor_heart', label: 'HOME.SYSTEM_STATUS', link: '/status' }
-  ];
 }
