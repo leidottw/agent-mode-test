@@ -1,0 +1,25 @@
+key,en,zh
+COMMON.WELCOME,Welcome,歡迎
+COMMON.LOGIN,Login,登入
+COMMON.LOGOUT,Logout,登出
+COMMON.DASHBOARD,Dashboard,儀表板
+COMMON.HOME,Home,首頁
+COMMON.SETTINGS,Settings,設定
+AUTH.LOGIN_TITLE,Welcome to DeltaGrid,歡迎使用 DeltaGrid
+AUTH.USERNAME,Username,使用者名稱
+AUTH.PASSWORD,Password,密碼
+AUTH.USERNAME_PLACEHOLDER,Enter your username,請輸入使用者名稱
+AUTH.PASSWORD_PLACEHOLDER,Enter your password,請輸入密碼
+AUTH.LOGIN_BUTTON,Sign In,登入
+AUTH.LOGGING_IN,Signing in...,登入中...
+AUTH.LOGIN_ERROR,Login failed. Please check your credentials.,登入失敗，請檢查您的帳號密碼
+AUTH.REQUIRED_FIELDS,Please enter username and password,請輸入使用者名稱和密碼
+HOME.TITLE,Welcome to DeltaGrid Dashboard,歡迎使用 DeltaGrid 儀表板
+HOME.SUBTITLE,Your Professional Data Management System,您的專業資料管理系統
+HOME.QUICK_ACTIONS,Quick Actions,快速操作
+HOME.VIEW_REPORTS,View Reports,查看報表
+HOME.MANAGE_DATA,Manage Data,管理資料
+HOME.SYSTEM_STATUS,System Status,系統狀態
+HOME.USERS_COUNT,Active Users,使用中用戶
+HOME.TOTAL_TASKS,Total Tasks,總任務數
+HOME.COMPLETED_TASKS,Completed Tasks,已完成任務
