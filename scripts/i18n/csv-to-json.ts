@@ -6,6 +6,12 @@ interface TranslationData {
   [key: string]: { [key: string]: string };
 }
 
+/**
+ * Converts a CSV file with translations to language-specific JSON files
+ * @param csvFilePath Path to the CSV file with translations
+ * @param outputDir Directory to output the JSON files
+ * @returns Promise that resolves when the conversion is complete
+ */
 async function convertCsvToJson(csvFilePath: string, outputDir: string) {
   const languages: string[] = [];
   const translationsByLanguage: { [lang: string]: TranslationData } = {};
@@ -48,18 +54,34 @@ async function convertCsvToJson(csvFilePath: string, outputDir: string) {
   });
 }
 
-// Check if source CSV file path is provided
-const csvFilePath = process.argv[2];
-if (!csvFilePath) {
-  console.error('Please provide the CSV file path');
-  process.exit(1);
+/**
+ * Main CLI function
+ */
+function main() {
+  // Check if source CSV file path is provided
+  const csvFilePath = process.argv[2];
+  if (!csvFilePath) {
+    console.error('Please provide the CSV file path');
+    process.exit(1);
+  }
+
+  // Set output directory
+  const outputDir = path.join(__dirname, '../../src/assets/i18n');
+
+  // Execute the conversion
+  convertCsvToJson(csvFilePath, outputDir).catch(error => {
+    console.error('Error:', error);
+    process.exit(1);
+  });
 }
 
-// Set output directory
-const outputDir = path.join(__dirname, '../../src/assets/i18n');
+// Only run the main function when this script is executed directly
+if (require.main === module) {
+  main();
+}
 
-// Execute the conversion
-convertCsvToJson(csvFilePath, outputDir).catch(error => {
-  console.error('Error:', error);
-  process.exit(1);
-});
+// Export for testing
+module.exports = {
+  convertCsvToJson,
+  main,
+};
