@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="header-left">
+    <h1>DeltaGrid</h1>
+  </div>
+  <div class="header-right">
+    <span class="username" *ngIf="authService.currentUser$ | async as user">
+      {{ user.username }}
+    </span>
+    <button class="logout-btn" (click)="logout()">登出</button>
+  </div>
+</header>
+<p>header works!</p>

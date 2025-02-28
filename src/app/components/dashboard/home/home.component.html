@@ -1,0 +1,29 @@
+<div class="dashboard-home">
+  <div class="welcome-card">
+    <h1>歡迎回來</h1>
+    <p *ngIf="authService.currentUser$ | async as user">{{ user.username }}</p>
+    <div class="stats">
+      <div class="stat-card">
+        <span class="material-icons">people</span>
+        <div class="stat-info">
+          <h3>用戶數</h3>
+          <p>128</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="material-icons">assignment</span>
+        <div class="stat-info">
+          <h3>總任務</h3>
+          <p>45</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="material-icons">done_all</span>
+        <div class="stat-info">
+          <h3>已完成</h3>
+          <p>32</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
