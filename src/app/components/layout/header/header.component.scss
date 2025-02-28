@@ -2,38 +2,41 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  height: 64px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
   .header-left {
-    h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      color: #2c3e50;
+    .logo {
+      img {
+        height: 40px;
+        max-width: 200px;
+        object-fit: contain;
+      }
     }
   }
-  
+
   .header-right {
     display: flex;
     align-items: center;
     gap: 1rem;
-    
+
     .username {
-      color: #666;
+      color: #2c3e50;
+      font-weight: 500;
     }
-    
+
     .logout-btn {
       padding: 0.5rem 1rem;
-      background-color: #dc3545;
-      color: white;
       border: none;
       border-radius: 4px;
+      background-color: #e74c3c;
+      color: white;
       cursor: pointer;
-      
+      transition: background-color 0.3s;
+
       &:hover {
-        background-color: #c82333;
+        background-color: #c0392b;
       }
     }
   }
