@@ -5,17 +5,25 @@
     </div>
   </div>
   <div class="header-right">
-    <span class="username" *ngIf="authService.currentUser$ | async as user">
-      {{ user.username }}
-    </span>
     <div class="header-actions">
-      <button class="theme-toggle" (click)="themeService.toggleTheme()">
+      <span class="username" *ngIf="authService.currentUser$ | async as user">
+        {{ user.username }}
+      </span>
+      <button class="logout-btn" (click)="logout()">
+        <span class="material-icons">logout</span>
+      </button>
+      <div class="divider"></div>
+      <div class="language-switcher">
+        <select [(ngModel)]="currentLang" (ngModelChange)="switchLanguage($event)">
+          @for (lang of languages; track lang.code) {
+            <option [value]="lang.code">{{ lang.name }}</option>
+          }
+        </select>
+      </div>
+      <button (click)="themeService.toggleTheme()">
         <span class="material-icons">
           {{ (themeService.isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}
         </span>
-      </button>
-      <button class="logout-btn" (click)="logout()">
-        <span class="material-icons">logout</span>
       </button>
     </div>
   </div>

@@ -1,10 +1,14 @@
 <nav class="sidebar">
   <ul class="menu">
-    <li *ngFor="let item of menuItems">
-      <a [routerLink]="item.link" routerLinkActive="active">
-        <span class="material-icons">{{ item.icon }}</span>
-        <span class="label">{{ item.label }}</span>
-      </a>
-    </li>
+    @for (item of menuItems; track item.path) {
+      <li>
+        <a [routerLink]="item.path" 
+           routerLinkActive="active" 
+           [routerLinkActiveOptions]="{exact: item.path === '/dashboard'}">
+          <span class="material-icons">{{ item.icon }}</span>
+          <span class="menu-label">{{ item.label | translate }}</span>
+        </a>
+      </li>
+    }
   </ul>
 </nav>

@@ -1,54 +1,69 @@
 <div class="login-container">
+  <div class="global-actions">
+    <select class="language-select" [(ngModel)]="currentLang" (ngModelChange)="switchLanguage($event)" name="language">
+      @for (lang of languages; track lang.code) {
+        <option [value]="lang.code">{{ lang.name }}</option>
+      }
+    </select>
+    <button class="theme-toggle" (click)="themeService.toggleTheme()">
+      <span class="material-icons">
+        {{ (themeService.isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}
+      </span>
+    </button>
+  </div>
+
   <div class="logo-section">
     <div class="logo">
       <img [src]="(themeService.isDarkMode$ | async) ? 'assets/logo-dark.svg' : 'assets/logo.svg'" alt="DeltaGrid Logo">
     </div>
-    <h1>歡迎使用 DeltaGrid</h1>
+    <h1>{{ 'AUTH.LOGIN_TITLE' | translate }}</h1>
     <p>專業的資料管理系統</p>
   </div>
   
   <div class="form-section">
     <div class="login-form">
       <div class="form-header">
-        <h2>登入</h2>
-        <button class="theme-toggle" (click)="themeService.toggleTheme()">
-          <span class="material-icons">
-            {{ (themeService.isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}
-          </span>
-        </button>
+        <h2>{{ 'AUTH.LOGIN_TITLE' | translate }}</h2>
       </div>
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
         <div class="form-group">
-          <label for="username">使用者名稱</label>
+          <label for="username">{{ 'AUTH.USERNAME' | translate }}</label>
           <input
             type="text"
             id="username"
             [(ngModel)]="username"
             name="username"
             required
+            [placeholder]="'AUTH.USERNAME_PLACEHOLDER' | translate"
             [disabled]="isLoading"
           >
         </div>
         
         <div class="form-group">
-          <label for="password">密碼</label>
+          <label for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
           <input
             type="password"
             id="password"
             [(ngModel)]="password"
             name="password"
             required
+            [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate"
             [disabled]="isLoading"
           >
         </div>
 
-        <div class="error-message" *ngIf="error">
-          {{ error }}
-        </div>
+        @if (error) {
+          <div class="error-message">
+            {{ error | translate }}
+          </div>
+        }
 
         <button type="submit" [disabled]="isLoading">
-          <span *ngIf="!isLoading">登入</span>
-          <span *ngIf="isLoading">登入中...</span>
+          @if (!isLoading) {
+            <span>{{ 'AUTH.LOGIN_BUTTON' | translate }}</span>
+          } @else {
+            <span>{{ 'AUTH.LOGGING_IN' | translate }}</span>
+          }
         </button>
       </form>
     </div>

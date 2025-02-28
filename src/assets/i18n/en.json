@@ -1,0 +1,32 @@
+{
+  "COMMON": {
+    "WELCOME": "Welcome",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "DASHBOARD": "Dashboard",
+    "HOME": "Home",
+    "SETTINGS": "Settings"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Welcome to DeltaGrid",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "USERNAME_PLACEHOLDER": "Enter your username",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "LOGIN_BUTTON": "Sign In",
+    "LOGGING_IN": "Signing in...",
+    "LOGIN_ERROR": "Login failed. Please check your credentials.",
+    "REQUIRED_FIELDS": "Please enter username and password"
+  },
+  "HOME": {
+    "TITLE": "Welcome to DeltaGrid Dashboard",
+    "SUBTITLE": "Your Professional Data Management System",
+    "QUICK_ACTIONS": "Quick Actions",
+    "VIEW_REPORTS": "View Reports",
+    "MANAGE_DATA": "Manage Data",
+    "SYSTEM_STATUS": "System Status",
+    "USERS_COUNT": "Active Users",
+    "TOTAL_TASKS": "Total Tasks",
+    "COMPLETED_TASKS": "Completed Tasks"
+  }
+}

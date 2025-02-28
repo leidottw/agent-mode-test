@@ -1,0 +1,32 @@
+{
+  "COMMON": {
+    "WELCOME": "歡迎",
+    "LOGIN": "登入",
+    "LOGOUT": "登出",
+    "DASHBOARD": "儀表板",
+    "HOME": "首頁",
+    "SETTINGS": "設定"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "歡迎使用 DeltaGrid",
+    "USERNAME": "使用者名稱",
+    "PASSWORD": "密碼",
+    "USERNAME_PLACEHOLDER": "請輸入使用者名稱",
+    "PASSWORD_PLACEHOLDER": "請輸入密碼",
+    "LOGIN_BUTTON": "登入",
+    "LOGGING_IN": "登入中...",
+    "LOGIN_ERROR": "登入失敗，請檢查您的帳號密碼",
+    "REQUIRED_FIELDS": "請輸入使用者名稱和密碼"
+  },
+  "HOME": {
+    "TITLE": "歡迎使用 DeltaGrid 儀表板",
+    "SUBTITLE": "您的專業資料管理系統",
+    "QUICK_ACTIONS": "快速操作",
+    "VIEW_REPORTS": "查看報表",
+    "MANAGE_DATA": "管理資料",
+    "SYSTEM_STATUS": "系統狀態",
+    "USERS_COUNT": "使用中用戶",
+    "TOTAL_TASKS": "總任務數",
+    "COMPLETED_TASKS": "已完成任務"
+  }
+}

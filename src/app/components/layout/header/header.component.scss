@@ -3,61 +3,38 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  transition: all 0.3s ease;
-
-  // Light Mode
-  background-color: #ffffff;
+  background-color: var(--surface-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  // Dark Mode
-  :host-context([data-theme="dark"]) & {
-    background-color: #2d3748;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
   .header-left {
-    .logo {
-      img {
-        height: 40px;
-        max-width: 200px;
-        object-fit: contain;
-      }
+    .logo img {
+      height: 40px;
+      max-width: 200px;
+      object-fit: contain;
     }
   }
 
-  .header-right {
+  .header-right .header-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
 
     .username {
-      // Light Mode
-      color: #2d3748;
-
-      // Dark Mode
-      :host-context([data-theme="dark"]) & {
-        color: #e2e8f0;
-      }
-    }
-
-    .logout-btn {
-      padding: 0.5rem 1rem;
-      border: none;
+      color: var(--text-color);
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      background-color: var(--surface-hover-color);
       border-radius: 4px;
-      background-color: #e74c3c;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #c0392b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      &::before {
+        content: 'person';
+        font-family: 'Material Icons';
+        font-size: 1.25rem;
       }
     }
-  }
-
-  .header-actions {
-    display: flex;
-    gap: 0.5rem;
 
     button {
       display: flex;
@@ -65,28 +42,14 @@
       justify-content: center;
       padding: 0.5rem;
       border: none;
-      border-radius: 0.375rem;
+      border-radius: 4px;
+      background-color: var(--surface-color);
+      color: var(--text-color);
       cursor: pointer;
       transition: all 0.2s ease;
 
-      // Light Mode
-      background-color: #f7fafc;
-      color: #4a5568;
-
-      // Dark Mode
-      :host-context([data-theme="dark"]) & {
-        background-color: #4a5568;
-        color: #e2e8f0;
-      }
-
       &:hover {
-        // Light Mode
-        background-color: #edf2f7;
-
-        // Dark Mode
-        :host-context([data-theme="dark"]) & {
-          background-color: #2d3748;
-        }
+        background-color: var(--hover-color);
       }
 
       .material-icons {
@@ -94,17 +57,50 @@
       }
     }
 
-    .theme-toggle {
+    .logout-btn {
+      background-color: var(--danger-color);
+      color: white;
+
       &:hover {
-        transform: rotate(15deg);
+        background-color: var(--danger-hover-color);
       }
     }
-  }
 
-  .logo {
-    img {
-      height: 40px;
-      width: auto;
+    .theme-toggle:hover {
+      transform: rotate(15deg);
+    }
+
+    .divider {
+      width: 1px;
+      height: 24px;
+      background-color: var(--border-color);
+      margin: 0 0.5rem;
+    }
+
+    .language-switcher select {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: var(--surface-color);
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 0.9rem;
+      
+      &:hover {
+        border-color: var(--primary-color);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+      }
+
+      option {
+        background-color: var(--surface-color);
+        color: var(--text-color);
+        padding: 0.5rem;
+      }
     }
   }
 }
