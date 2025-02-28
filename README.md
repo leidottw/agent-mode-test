@@ -1,59 +1,101 @@
 # DeltaGrid
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Angular-based power grid management system.
 
-## Development server
+## 概述 (Overview)
 
-To start a local development server, run:
+DeltaGrid 是一個基於 Angular 19.2.0 搭建的電網管理系統，提供直觀的使用者介面和高效能的數據處理能力。
+
+## 開發環境設置 (Development Setup)
+
+### 前置需求
+
+- Node.js (18.x 或更高版本)
+- npm 或 yarn
+- Angular CLI
+
+### 安裝步驟
+
+1. 克隆儲存庫:
+```bash
+git clone [repository-url]
+cd DeltaGrid
+```
+
+2. 安裝依賴:
+```bash
+npm install
+```
+
+## 啟動開發伺服器 (Development Server)
+
+執行以下命令啟動本地開發伺服器:
 
 ```bash
+npm start
+# 或使用 Angular CLI
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+開發伺服器啟動後，打開瀏覽器訪問 `http://localhost:4200/`。當源文件發生更改時，應用將自動重載。
 
-## Code scaffolding
+## 建立專案 (Building)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+執行以下命令以構建專案:
 
 ```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+npm run build
+# 或使用 Angular CLI
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+構建後的文件將存儲在 `dist/` 目錄中。默認為生產環境優化構建。
 
-## Running unit tests
+## 測試 (Testing)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 單元測試
+
+執行單元測試:
 
 ```bash
+npm test
+# 或使用 Angular CLI
 ng test
 ```
 
-## Running end-to-end tests
+### 代碼品質
 
-For end-to-end (e2e) testing, run:
+檢查代碼品質:
 
 ```bash
-ng e2e
+npm run lint
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 專案架構 (Project Structure)
 
-## Additional Resources
+```
+src/
+  ├── app/
+  │   ├── components/      - 應用元件
+  │   ├── services/        - 服務層
+  │   └── ...
+  ├── assets/              - 靜態資源文件
+  │   ├── i18n/            - 國際化資源
+  │   └── ...
+  └── ...
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 功能特點 (Features)
+
+- 響應式儀表板設計
+- 多語言支持
+- 主題切換功能
+- 使用者認證
+
+## 協助開發 (Contributing)
+
+請參閱 `CONTRIBUTING.md` 了解有關貢獻指南的更多信息。
+
+## 授權 (License)
+
+本專案採用 [授權類型] 授權 - 詳見 LICENSE 文件。
