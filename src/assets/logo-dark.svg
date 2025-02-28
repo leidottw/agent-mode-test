@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Delta Symbol -->
+  <path d="M 30,50 L 10,10 L 50,10 Z" 
+        fill="none" 
+        stroke="#90cdf4" 
+        stroke-width="3"/>
+  
+  <!-- Grid Lines -->
+  <g stroke="#90cdf4" stroke-width="2">
+    <line x1="20" y1="20" x2="40" y2="20" opacity="0.7"/>
+    <line x1="25" y1="30" x2="35" y2="30" opacity="0.7"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="60" y="35" 
+        font-family="Arial, sans-serif" 
+        font-size="24" 
+        font-weight="bold" 
+        fill="#e2e8f0">
+    DeltaGrid
+  </text>
+</svg>

@@ -1,13 +1,22 @@
 <header class="header">
   <div class="header-left">
     <div class="logo">
-      <img src="/assets/logo.svg" alt="DeltaGrid Logo">
+      <img [src]="(themeService.isDarkMode$ | async) ? '/assets/logo-dark.svg' : '/assets/logo.svg'" alt="DeltaGrid Logo">
     </div>
   </div>
   <div class="header-right">
     <span class="username" *ngIf="authService.currentUser$ | async as user">
       {{ user.username }}
     </span>
-    <button class="logout-btn" (click)="logout()">登出</button>
+    <div class="header-actions">
+      <button class="theme-toggle" (click)="themeService.toggleTheme()">
+        <span class="material-icons">
+          {{ (themeService.isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}
+        </span>
+      </button>
+      <button class="logout-btn" (click)="logout()">
+        <span class="material-icons">logout</span>
+      </button>
+    </div>
   </div>
 </header>

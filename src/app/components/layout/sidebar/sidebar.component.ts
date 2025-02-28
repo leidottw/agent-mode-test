@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../../services/theme.service';
 
 interface MenuItem {
   label: string;
@@ -21,4 +22,6 @@ export class SidebarComponent {
     { label: '用戶管理', icon: 'people', link: '/dashboard/users' },
     { label: '設定', icon: 'settings', link: '/dashboard/settings' }
   ];
+
+  constructor(public themeService: ThemeService) {}
 }

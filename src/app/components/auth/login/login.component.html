@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="logo-section">
     <div class="logo">
-      <img src="assets/logo.svg" alt="DeltaGrid Logo">
+      <img [src]="(themeService.isDarkMode$ | async) ? 'assets/logo-dark.svg' : 'assets/logo.svg'" alt="DeltaGrid Logo">
     </div>
     <h1>歡迎使用 DeltaGrid</h1>
     <p>專業的資料管理系統</p>
@@ -9,7 +9,14 @@
   
   <div class="form-section">
     <div class="login-form">
-      <h2>登入</h2>
+      <div class="form-header">
+        <h2>登入</h2>
+        <button class="theme-toggle" (click)="themeService.toggleTheme()">
+          <span class="material-icons">
+            {{ (themeService.isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}
+          </span>
+        </button>
+      </div>
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="username">使用者名稱</label>

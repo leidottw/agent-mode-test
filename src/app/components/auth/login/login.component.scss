@@ -1,21 +1,22 @@
 .login-container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  transition: all 0.3s ease;
+  
+  // Light Mode (default)
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   
   .logo-section {
     flex: 1;
-    background-color: rgba(245, 245, 245, 0.1);
-    background-image: url("../../../../assets/power-grid-background.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    background: url('/assets/power-grid-background.svg') no-repeat center center;
+    background-size: cover;
+    position: relative;
     
     &::before {
       content: '';
@@ -24,31 +25,37 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(245, 245, 245, 0.4);
-      z-index: 1;
+      // Light Mode
+      background-color: rgba(255, 255, 255, 0.2);
+      
+      // Dark Mode
+      :host-context([data-theme="dark"]) & {
+        background-color: rgba(26, 32, 44, 0.2);
+      }
     }
     
     .logo, h1, p {
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
     
     .logo {
       margin-bottom: 2rem;
       img {
         max-width: 200px;
+        height: auto;
       }
     }
     
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #333;
+      text-align: center;
     }
     
     p {
       font-size: 1.2rem;
-      color: #666;
+      opacity: 0.8;
     }
   }
   
@@ -59,14 +66,74 @@
     align-items: center;
     padding: 2rem;
     
+    // Light Mode
+    background-color: var(--bg-primary);
+    
+    // Dark Mode
+    :host-context([data-theme="dark"]) & {
+      background-color: var(--bg-primary);
+    }
+    
     .login-form {
       width: 100%;
       max-width: 400px;
+      padding: 2rem;
+      border-radius: 8px;
       
-      h2 {
-        text-align: center;
+      // Light Mode
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      
+      // Dark Mode
+      :host-context([data-theme="dark"]) & {
+        background-color: var(--bg-secondary);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+      
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 2rem;
-        color: #333;
+        
+        h2 {
+          margin: 0;
+          font-size: 1.8rem;
+        }
+        
+        .theme-toggle {
+          background: none;
+          border: none;
+          padding: 0.5rem;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          
+          // Light Mode
+          color: #4a5568;
+          
+          // Dark Mode
+          :host-context([data-theme="dark"]) & {
+            color: #e2e8f0;
+          }
+          
+          &:hover {
+            // Light Mode
+            background-color: #edf2f7;
+            
+            // Dark Mode
+            :host-context([data-theme="dark"]) & {
+              background-color: #2d3748;
+            }
+          }
+          
+          .material-icons {
+            font-size: 1.5rem;
+          }
+        }
       }
       
       .form-group {
@@ -75,46 +142,86 @@
         label {
           display: block;
           margin-bottom: 0.5rem;
-          color: #666;
+          font-weight: 500;
         }
         
         input {
           width: 100%;
           padding: 0.75rem;
-          border: 1px solid #ddd;
           border-radius: 4px;
-          font-size: 1rem;
+          border: 1px solid;
+          transition: all 0.3s ease;
+          
+          // Light Mode
+          border-color: #e2e8f0;
+          background-color: #ffffff;
+          color: #2d3748;
+          
+          // Dark Mode
+          :host-context([data-theme="dark"]) & {
+            border-color: #4a5568;
+            background-color: #2d3748;
+            color: #e2e8f0;
+          }
           
           &:focus {
             outline: none;
-            border-color: #007bff;
+            // Light Mode
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+            
+            // Dark Mode
+            :host-context([data-theme="dark"]) & {
+              border-color: #90cdf4;
+              box-shadow: 0 0 0 3px rgba(144, 205, 244, 0.2);
+            }
+          }
+          
+          &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
           }
         }
       }
       
       .error-message {
-        color: #dc3545;
+        color: #e53e3e;
         margin-bottom: 1rem;
         font-size: 0.875rem;
       }
       
-      button {
+      button[type="submit"] {
         width: 100%;
         padding: 0.75rem;
-        background-color: #007bff;
-        color: white;
         border: none;
         border-radius: 4px;
-        font-size: 1rem;
+        font-weight: 600;
         cursor: pointer;
+        transition: all 0.3s ease;
         
-        &:disabled {
-          background-color: #ccc;
-          cursor: not-allowed;
+        // Light Mode
+        background-color: #3498db;
+        color: #ffffff;
+        
+        // Dark Mode
+        :host-context([data-theme="dark"]) & {
+          background-color: #90cdf4;
+          color: #1a202c;
         }
         
         &:hover:not(:disabled) {
-          background-color: #0056b3;
+          // Light Mode
+          background-color: #2980b9;
+          
+          // Dark Mode
+          :host-context([data-theme="dark"]) & {
+            background-color: #63b3ed;
+          }
+        }
+        
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
         }
       }
     }
